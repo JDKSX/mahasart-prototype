@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>วัตถุมงคล · หลังบ้าน MAHASART</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin-pages-b.css">
+</head>
+<body data-admin-page="amulets" data-perm="amulets.view" data-base="../">
+<div id="mh-admin"></div>
+<main id="main" class="adm-main">
+  <div class="adm-head">
+    <div>
+      <h1>วัตถุมงคล</h1>
+      <p>ทุกชิ้นต้องติดป้ายประเภทชัดเจน มีรูปพร้อมคำบรรยาย และไม่มีคำต้องห้าม ก่อนเผยแพร่ได้</p>
+    </div>
+    <div class="btn-row"><a class="btn btn--primary" id="add-btn" href="amulet-edit.html" hidden>เพิ่มวัตถุมงคล</a></div>
+  </div>
+  <div id="notes"></div>
+  <div class="toolbar" role="search" aria-label="ค้นหาและกรองวัตถุมงคล">
+    <div class="field tb-search">
+      <label class="sr-only" for="f-q">ค้นหาจากชื่อหรือรหัส</label>
+      <input class="input" id="f-q" type="search" placeholder="ค้นหาชื่อหรือรหัส เช่น MH-0005" autocomplete="off">
+    </div>
+    <div class="field">
+      <label class="sr-only" for="f-cat">กรองตามหมวด</label>
+      <select class="select" id="f-cat"><option value="">ทุกหมวด</option></select>
+    </div>
+    <div class="field">
+      <label class="sr-only" for="f-prov">กรองตามป้ายประเภท</label>
+      <select class="select" id="f-prov">
+        <option value="">ทุกป้ายประเภท</option>
+        <option value="certified">มีใบรับรอง</option>
+        <option value="new_edition">พระรุ่นใหม่</option>
+        <option value="replica">รุ่นจำลองเพื่อบูชา</option>
+        <option value="natural_stone">หินธรรมชาติ</option>
+        <option value="worship_statue">องค์บูชา</option>
+        <option value="none">ยังไม่ระบุประเภท</option>
+      </select>
+    </div>
+  </div>
+  <div class="chips" id="status-chips" role="group" aria-label="กรองตามสถานะ"></div>
+  <p class="muted result-count" id="result-count" role="status" aria-live="polite"></p>
+  <div id="list"></div>
+</main>
+<script src="../data/rules.js"></script>
+<script src="../data/content.js"></script>
+<script src="../data/system.js"></script>
+<script src="../data/phase2.js"></script>
+<script src="../data/phase3.js"></script>
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/commerce.js"></script>
+<script src="../assets/js/astro.js"></script>
+<script src="../assets/js/shell.js"></script>
+<script src="../assets/js/admin/admin-shell.js"></script>
+<script src="../assets/js/admin/amulets.js"></script>
+</body>
+</html>

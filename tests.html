@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ตรวจสูตรคำนวณ · MAHASART</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAHASART">
+<meta property="og:title" content="ตรวจสูตรคำนวณ · MAHASART">
+<meta property="og:description" content="ชุดทดสอบสูตรคำนวณทักษา ดาววันเกิด ราศี และเลขศาสตร์ ใช้ตรวจว่าสูตรในต้นแบบให้ค่าถูกต้อง">
+<meta property="og:url" content="https://mahasart.net/tests.html">
+<meta property="og:image" content="https://mahasart.net/assets/img/og-cover.png">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mahasart.net/tests.html">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2E2470">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="description" content="ชุดทดสอบสูตรคำนวณทักษา ดาววันเกิด ราศี และเลขศาสตร์ ใช้ตรวจว่าสูตรในต้นแบบให้ค่าถูกต้อง">
+<link rel="stylesheet" href="assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="tests" data-base="">
+<div id="mh-header"></div>
+
+<main id="main" class="wrap">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="เส้นทางหน้า"><a href="index.html">หน้าแรก</a><span aria-hidden="true">›</span><span aria-current="page">ตรวจสูตรคำนวณ</span></nav>
+    <h1>ตรวจสูตรคำนวณ</h1>
+    <p class="lede">ชุดทดสอบนี้เรียกสูตรใน astro.js ด้วยค่าที่รู้คำตอบแล้ว แล้วเทียบผล ตอนทำระบบจริงใช้ชุดเดียวกันตรวจโค้ด PHP ว่าตรงกับต้นแบบ</p>
+  </div>
+
+  <div class="test-sum">
+    <p class="notice" id="test-summary" role="status">กำลังตรวจ…</p>
+    <button class="btn btn--outline" type="button" id="rerun">ตรวจอีกครั้ง</button>
+  </div>
+  <p class="muted">ตำราที่ใช้ทดสอบ: “<span data-ruleset></span>” · ชื่อ ช่วงราศี และค่าตัวอักษรอ่านจากตำรานี้ ถ้าโหรแก้ตำราแล้วผลล้ม ให้ตรวจตำราก่อน</p>
+
+  <div class="table-wrap">
+    <table class="table">
+      <caption class="sr-only">ผลทดสอบสูตรคำนวณ</caption>
+      <thead><tr><th scope="col">รายการ</th><th scope="col">ค่าที่ถูกต้อง</th><th scope="col">ค่าที่ได้</th><th scope="col">ผล</th></tr></thead>
+      <tbody id="test-rows"></tbody>
+    </table>
+  </div>
+</main>
+
+<div id="mh-footer"></div>
+<script src="data/rules.js"></script>
+<script src="data/content.js"></script>
+<script src="data/system.js"></script>
+<script src="data/phase2.js"></script>
+<script src="data/phase3.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/commerce.js"></script>
+<script src="assets/js/astro.js"></script>
+<script src="assets/js/astro-tests.js"></script>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/pages/tests.js"></script>
+</body>
+</html>

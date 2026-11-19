@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>แก้ไขคอร์ส · MAHASART หลังบ้าน</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin-pages.css">
+<link rel="stylesheet" href="../assets/css/courses.css">
+</head>
+<body data-admin-page="courses" data-perm="courses.view" data-base="../">
+<div id="mh-admin"></div>
+<main id="main" class="adm-main">
+  <a class="crumb-back" href="courses.html"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg>รายการคอร์สเรียน</a>
+  <div class="adm-head">
+    <div><h1 id="page-title">คอร์สเรียน</h1><p id="page-sub"></p></div>
+    <div class="btn-row" id="head-actions"></div>
+  </div>
+  <div id="state"></div>
+
+  <form id="course-form" novalidate hidden>
+    <div class="notice-stack" id="notices"></div>
+
+    <section class="form-section" aria-labelledby="s-main">
+      <h2 id="s-main">ข้อมูลคอร์ส</h2>
+      <p class="hint">ชื่อ ลิงก์ ผู้สอน ราคา และคำโปรยที่ขึ้นบนการ์ดคอร์ส</p>
+      <div class="form-grid">
+        <div class="field full">
+          <label for="f-title">ชื่อคอร์ส</label>
+          <input class="input" id="f-title" type="text" maxlength="160" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="f-slug">slug (ส่วนท้ายของลิงก์)</label>
+          <div class="slug-row">
+            <input class="input" id="f-slug" type="text" maxlength="120" autocomplete="off" spellcheck="false" placeholder="เช่น thai-astrology-101">
+            <button type="button" class="btn btn--outline btn--sm" id="btn-slug">สร้างจากชื่อ</button>
+          </div>
+          <p class="hint" id="slug-hint">ใช้ a-z ตัวเลข และขีดกลางเท่านั้น ชื่อภาษาไทยให้กรอกเอง</p>
+        </div>
+        <div class="field">
+          <label for="f-expert">ผู้สอน</label>
+          <select class="select" id="f-expert"></select>
+        </div>
+        <div class="field">
+          <label for="f-level">ระดับ</label>
+          <select class="select" id="f-level"></select>
+        </div>
+        <div class="field">
+          <label for="f-price">ราคา (บาท)</label>
+          <input class="input" id="f-price" type="number" min="1" step="1" inputmode="numeric">
+          <p class="hint">ราคาเต็มสำหรับคนซื้อแยก ต้องมากกว่า 0</p>
+        </div>
+        <div class="field full">
+          <label class="check" for="f-premium"><input type="checkbox" id="f-premium"> ร่วมรายการพรีเมียม (สมาชิกพรีเมียมเรียนฟรี)</label>
+        </div>
+        <div class="field full">
+          <label for="f-summary">คำโปรย</label>
+          <textarea class="textarea" id="f-summary" rows="3"></textarea>
+          <p class="hint">สรุปสั้น ๆ ไม่เกิน 300 ตัวอักษร ขึ้นบนการ์ดคอร์ส</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" aria-labelledby="s-cover">
+      <h2 id="s-cover">ภาพปก</h2>
+      <p class="hint">ต้นแบบยังไม่อัปโหลดรูป ใช้ตัวอักษร 1–2 ตัวและเลือกโทนสีแทน</p>
+      <div class="crs-cover">
+        <div id="thumb-preview" role="img" aria-label="ตัวอย่างภาพปก"></div>
+        <div class="crs-cover-fields">
+          <div class="field">
+            <label for="f-glyph">ตัวอักษรบนปก</label>
+            <input class="input" id="f-glyph" type="text" maxlength="4" autocomplete="off" placeholder="เช่น ๘ หรือ M">
+          </div>
+          <div class="field">
+            <label for="f-tone">โทนสี</label>
+            <select class="select" id="f-tone">
+              <option value="violet">ม่วง</option>
+              <option value="amber">ทอง</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" aria-labelledby="s-lessons">
+      <h2 id="s-lessons">บทเรียน</h2>
+      <p class="hint">เรียงจากบนลงล่างตามลำดับที่ผู้เรียนเห็น · วิดีโอและบทอ่านใส่เนื้อหาเป็นข้อความ (เว้นบรรทัดว่างขึ้นย่อหน้า, "## " หัวข้อ, "- " รายการ) · แบบทดสอบมี 4 ตัวเลือกต่อข้อ</p>
+      <ol class="crs-ed-lessons" id="lesson-list"></ol>
+      <button type="button" class="btn btn--outline btn--sm" id="btn-add-lesson">+ เพิ่มบทเรียน</button>
+    </section>
+
+    <section class="form-section" aria-labelledby="s-wf">
+      <h2 id="s-wf">สถานะและการเผยแพร่</h2>
+      <dl class="wf-meta" id="wf-meta" tabindex="-1"></dl>
+      <p class="hint">เงื่อนไขก่อนเผยแพร่ (ตรวจจากข้อมูลในฟอร์มตอนนี้)</p>
+      <ul class="crs-check" id="check"></ul>
+      <div id="wf-notes"></div>
+    </section>
+
+    <div class="form-actions" id="actions"></div>
+  </form>
+</main>
+<script src="../data/rules.js"></script>
+<script src="../data/content.js"></script>
+<script src="../data/system.js"></script>
+<script src="../data/phase2.js"></script>
+<script src="../data/phase3.js"></script>
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/commerce.js"></script>
+<script src="../assets/js/astro.js"></script>
+<script src="../assets/js/shell.js"></script>
+<script src="../assets/js/admin/admin-shell.js"></script>
+<script src="../assets/js/admin/course-edit.js"></script>
+</body>
+</html>

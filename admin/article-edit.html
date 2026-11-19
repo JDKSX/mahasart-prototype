@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>แก้ไขบทความ · MAHASART หลังบ้าน</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin-pages.css">
+</head>
+<body data-admin-page="articles" data-perm="articles.view" data-base="../">
+<div id="mh-admin"></div>
+<main id="main" class="adm-main">
+  <a class="crumb-back" href="articles.html"><svg class="ico" aria-hidden="true"><use href="#i-back"/></svg>รายการบทความ</a>
+  <div class="adm-head">
+    <div><h1 id="page-title">บทความ</h1><p id="page-sub"></p></div>
+    <div class="btn-row" id="head-actions"></div>
+  </div>
+  <div id="state"></div>
+
+  <form id="art-form" novalidate hidden>
+    <div class="notice-stack" id="notices"></div>
+
+    <section class="form-section" aria-labelledby="s-main">
+      <h2 id="s-main">ข้อมูลบทความ</h2>
+      <p class="hint">ชื่อเรื่อง ลิงก์ หมวด และคำโปรยที่ขึ้นบนการ์ดบทความ</p>
+      <div class="form-grid">
+        <div class="field full">
+          <label for="f-title">ชื่อเรื่อง</label>
+          <input class="input" id="f-title" type="text" maxlength="160" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="f-slug">slug (ส่วนท้ายของลิงก์)</label>
+          <div class="slug-row">
+            <input class="input" id="f-slug" type="text" maxlength="120" autocomplete="off" spellcheck="false" placeholder="เช่น what-is-taksa">
+            <button type="button" class="btn btn--outline btn--sm" id="btn-slug">สร้างจากชื่อ</button>
+          </div>
+          <p class="hint" id="slug-hint">ใช้ a-z ตัวเลข และขีดกลางเท่านั้น ปุ่ม "สร้างจากชื่อ" ใช้ได้กับชื่อภาษาอังกฤษ ชื่อภาษาไทยให้กรอกเอง</p>
+        </div>
+        <div class="field">
+          <label for="f-category">หมวด</label>
+          <select class="select" id="f-category"></select>
+        </div>
+        <div class="field full">
+          <label for="f-excerpt">คำโปรย</label>
+          <textarea class="textarea" id="f-excerpt" rows="3"></textarea>
+          <p class="hint">สรุปสั้น ๆ ไม่เกิน 300 ตัวอักษร ขึ้นบนการ์ดบทความและผลค้นหา</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" aria-labelledby="s-cover">
+      <h2 id="s-cover">ภาพปก</h2>
+      <p class="hint">ต้นแบบยังไม่อัปโหลดรูป ใช้ตัวอักษร 1–2 ตัวหรือเลือกภาพประกอบแทน</p>
+      <div class="thumb-pick">
+        <div id="thumb-preview" aria-label="ตัวอย่างภาพปก" role="img"></div>
+        <div class="thumb-fields">
+          <div class="field">
+            <label for="f-glyph">ตัวอักษรบนปก</label>
+            <input class="input" id="f-glyph" type="text" maxlength="4" autocomplete="off" placeholder="เช่น ๘ หรือ M">
+            <p class="hint">ไม่ใช้ถ้าเลือกภาพประกอบ</p>
+          </div>
+          <div class="field">
+            <label for="f-art">ภาพประกอบ</label>
+            <select class="select" id="f-art"></select>
+          </div>
+          <div class="field">
+            <label for="f-tone">โทนสี</label>
+            <select class="select" id="f-tone">
+              <option value="violet">ม่วง</option>
+              <option value="amber">ทอง</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" aria-labelledby="s-body">
+      <h2 id="s-body">เนื้อหา</h2>
+      <p class="hint">เว้นบรรทัดว่างเพื่อขึ้นย่อหน้าใหม่ · ขึ้นต้นบรรทัดด้วย "## " เป็นหัวข้อ · ขึ้นต้นด้วย "- " เป็นรายการ (ต้องขึ้นต้นด้วย "- " ทุกบรรทัดในกลุ่มนั้น)</p>
+      <div class="tabs" role="tablist" aria-label="โหมดเนื้อหา">
+        <button type="button" role="tab" id="tab-write" aria-selected="true" aria-controls="pane-write">เขียน</button>
+        <button type="button" role="tab" id="tab-preview" aria-selected="false" aria-controls="pane-preview" tabindex="-1">ดูผล</button>
+      </div>
+      <div id="pane-write" role="tabpanel" aria-labelledby="tab-write">
+        <div class="field">
+          <label class="sr-only" for="f-body">เนื้อหาบทความ</label>
+          <textarea class="textarea body-area" id="f-body" rows="16"></textarea>
+        </div>
+      </div>
+      <div id="pane-preview" role="tabpanel" aria-labelledby="tab-preview" hidden>
+        <div class="preview-box prose" id="body-preview"></div>
+      </div>
+    </section>
+
+    <section class="form-section" aria-labelledby="s-src">
+      <h2 id="s-src">แหล่งอ้างอิง</h2>
+      <p class="hint">ตำราหรือแหล่งข้อมูลที่ใช้ เพื่อให้ผู้อ่านตรวจสอบได้ ไม่บังคับ แถวที่เว้นว่างทั้งหมดจะไม่ถูกบันทึก</p>
+      <ul class="src-list" id="src-list"></ul>
+      <button type="button" class="btn btn--outline btn--sm" id="btn-add-src">+ เพิ่มแหล่งอ้างอิง</button>
+    </section>
+
+    <section class="form-section" aria-labelledby="s-wf">
+      <h2 id="s-wf">สถานะและการเผยแพร่</h2>
+      <dl class="wf-meta" id="wf-meta" tabindex="-1"></dl>
+      <div id="wf-notes"></div>
+      <div class="field" id="wf-feature" hidden>
+        <label class="check" for="f-featured"><input type="checkbox" id="f-featured"> แสดงเป็นบทความเด่นบนหน้าแรก</label>
+      </div>
+      <div class="field" id="wf-schedule" hidden>
+        <label for="f-schedule">วันและเวลาที่จะเผยแพร่</label>
+        <input class="input" id="f-schedule" type="datetime-local">
+        <p class="hint">ใช้กับปุ่ม "ตั้งเวลาเผยแพร่" ต้องเป็นเวลาในอนาคต บทความจะขึ้นหน้าเว็บเองเมื่อถึงเวลา</p>
+      </div>
+    </section>
+
+    <div class="form-actions" id="actions"></div>
+  </form>
+</main>
+<script src="../data/rules.js"></script>
+<script src="../data/content.js"></script>
+<script src="../data/system.js"></script>
+<script src="../data/phase2.js"></script>
+<script src="../data/phase3.js"></script>
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/commerce.js"></script>
+<script src="../assets/js/astro.js"></script>
+<script src="../assets/js/shell.js"></script>
+<script src="../assets/js/admin/admin-shell.js"></script>
+<script src="../assets/js/admin/article-edit.js"></script>
+</body>
+</html>

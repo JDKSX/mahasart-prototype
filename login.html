@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>เข้าสู่ระบบ · MAHASART</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAHASART">
+<meta property="og:title" content="เข้าสู่ระบบ · MAHASART">
+<meta property="og:description" content="เข้าสู่ระบบสมาชิก MAHASART ด้วย LINE, Google หรืออีเมล เพื่อบันทึกผลดูดวงและเก็บรายการโปรด">
+<meta property="og:url" content="https://mahasart.net/login.html">
+<meta property="og:image" content="https://mahasart.net/assets/img/og-cover.png">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mahasart.net/login.html">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2E2470">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="description" content="เข้าสู่ระบบสมาชิก MAHASART ด้วย LINE, Google หรืออีเมล เพื่อบันทึกผลดูดวงและเก็บรายการโปรด">
+<link rel="stylesheet" href="assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/members.css">
+</head>
+<body data-page="login" data-base="">
+<div id="mh-header"></div>
+
+<main id="main" class="wrap">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="เส้นทางหน้า"><a href="index.html">หน้าแรก</a><span aria-hidden="true">›</span><span aria-current="page">เข้าสู่ระบบ</span></nav>
+    <h1>เข้าสู่ระบบสมาชิก</h1>
+    <p class="lede">สมาชิกบันทึกผลดูดวง เก็บรายการโปรด และใช้ Mahasart AI ได้ ดูดวงพื้นฐานได้โดยไม่ต้องสมัคร</p>
+  </div>
+
+  <div class="mb-narrow">
+    <section class="card mb-card" id="login-out" aria-labelledby="login-h">
+      <h2 id="login-h">เลือกวิธีเข้าสู่ระบบ</h2>
+      <p class="lede-sm">ยังไม่มีบัญชี? เลือก LINE หรือ Google ระบบสมัครให้อัตโนมัติ</p>
+      <div class="mb-social">
+        <button type="button" class="btn btn--outline mb-social-btn" data-provider="line"><span class="mb-pv mb-pv--line" aria-hidden="true">L</span>เข้าสู่ระบบด้วย LINE</button>
+        <button type="button" class="btn btn--outline mb-social-btn" data-provider="google"><span class="mb-pv mb-pv--google" aria-hidden="true">G</span>เข้าสู่ระบบด้วย Google</button>
+      </div>
+      <p class="mb-or"><span>หรือใช้อีเมล</span></p>
+      <form class="mb-form" id="login-form" novalidate>
+        <div class="field">
+          <label for="lg-email">อีเมล</label>
+          <input class="input" id="lg-email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com">
+        </div>
+        <div class="field">
+          <label for="lg-pass">รหัสผ่าน</label>
+          <input class="input" id="lg-pass" type="password" autocomplete="current-password" aria-describedby="lg-pass-hint">
+          <p class="hint" id="lg-pass-hint">ยาวอย่างน้อย 8 ตัวอักษร · ต้นแบบนี้ไม่ตรวจรหัสผ่านจริง ตรวจแค่ความยาวและว่าอีเมลนี้มีบัญชีอยู่</p>
+        </div>
+        <button class="btn btn--primary" type="submit">เข้าสู่ระบบ</button>
+        <button class="mb-link" type="button" id="forgot">ลืมรหัสผ่าน?</button>
+      </form>
+      <p class="mb-foot">ยังไม่มีบัญชี? <a id="to-register" href="register.html">สมัครสมาชิกฟรี</a></p>
+      <details class="mb-samples">
+        <summary>สมาชิกตัวอย่างสำหรับลองเข้าสู่ระบบ</summary>
+        <ul id="sample-list"></ul>
+      </details>
+    </section>
+
+    <section class="card mb-card mb-who" id="login-in" aria-labelledby="who-h" hidden>
+      <span class="mb-avatar" aria-hidden="true">✦</span>
+      <h2 id="who-h">คุณเข้าสู่ระบบอยู่แล้ว</h2>
+      <p><b id="who-name"></b></p>
+      <p class="muted" id="who-sub"></p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="account.html">ไปที่บัญชีของฉัน</a>
+        <a class="btn btn--outline" id="who-back" href="index.html" hidden>กลับไปหน้าที่เปิดค้างไว้</a>
+        <button type="button" class="btn btn--outline" id="who-logout">ออกจากระบบ</button>
+      </div>
+    </section>
+
+    <p class="disclaimer">ต้นแบบนี้จำลองการเข้าสู่ระบบทั้ง 3 ทาง ข้อมูลสมาชิกเก็บในเบราว์เซอร์นี้เท่านั้น · <a href="page.html?slug=privacy">นโยบายความเป็นส่วนตัว</a></p>
+  </div>
+</main>
+
+<div id="mh-footer"></div>
+<script src="data/rules.js"></script>
+<script src="data/content.js"></script>
+<script src="data/system.js"></script>
+<script src="data/phase2.js"></script>
+<script src="data/phase3.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/commerce.js"></script>
+<script src="assets/js/astro.js"></script>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/pages/login.js"></script>
+</body>
+</html>

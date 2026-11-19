@@ -1,0 +1,254 @@
+/* MAHASART ผู้เชี่ยวชาญและการนัดหมาย (เฟส 3) — ใช้ร่วมกันทั้งฝั่งผู้ใช้และหลังบ้าน
+   โหลดต่อจาก mahasart-ds.css · สีทุกค่ามาจาก token · ธีมสว่าง/มืดเปลี่ยนตาม token เอง */
+
+/* ---------- ป้ายสถานะ (ใช้ทั้งสองฝั่ง) ---------- */
+.st{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:600;padding:2px 10px;border-radius:999px;white-space:nowrap;background:var(--surface-2);color:var(--muted);line-height:1.6}
+.st::before{content:"";width:7px;height:7px;border-radius:50%;background:currentColor;flex:none}
+.st--ok{background:var(--ok-bg);color:var(--ok)}
+.st--warn{background:var(--warn-bg);color:var(--warn)}
+.st--bad{background:var(--danger-bg);color:var(--danger)}
+.st--info{background:var(--info-bg);color:var(--link)}
+.stars{display:inline-flex;gap:1px;color:var(--line);font-size:15px;line-height:1;vertical-align:middle}
+.stars i{font-style:normal}
+.stars i.on{color:var(--gold)}
+.rating{display:inline-flex;align-items:center;gap:6px;font-size:13.5px}
+.rating b{font-variant-numeric:tabular-nums}
+.ex-notice{margin:14px 0 0}
+.ex-note{font-size:13px;color:var(--muted);margin:10px 0 0}
+
+/* ---------- รูปอักษรย่อ ---------- */
+.exp-av{width:56px;height:56px;border-radius:50%;flex:none;display:grid;place-items:center;font-family:var(--f-display);font-size:24px;font-weight:700;color:var(--gold-soft);background:linear-gradient(135deg,var(--night) 0%,var(--glow-violet) 100%)}
+.exp-av--lg{width:88px;height:88px;font-size:38px}
+
+/* ---------- รายการผู้เชี่ยวชาญ ---------- */
+.exp-grid{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.exp-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:18px;display:flex;flex-direction:column;gap:12px;height:100%}
+.exp-top{display:flex;gap:14px;align-items:center;min-width:0}
+.exp-top > div{min-width:0}
+.exp-top h3{margin:0;font-size:17px;font-weight:600;line-height:1.4}
+.exp-top h3 a{color:inherit;text-decoration:none}
+.exp-top h3 a:hover{color:var(--link);text-decoration:underline}
+.exp-top p{margin:0;font-size:13px;color:var(--muted)}
+.exp-tags{display:flex;flex-wrap:wrap;gap:6px}
+.exp-facts{margin:0;display:grid;gap:6px;font-size:13.5px}
+.exp-facts div{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.exp-facts dt{color:var(--muted)}
+.exp-facts dd{margin:0;font-weight:600;text-align:right}
+.exp-card .btn-row{margin-top:auto}
+.apply-card{display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.apply-card h2{font-family:var(--f-display);font-size:21px;margin:0 0 4px}
+.apply-card p{margin:0;color:var(--muted);max-width:60ch}
+.dialog .field + .field{margin-top:12px}
+.dialog .btn-row{margin-top:16px;justify-content:flex-end}
+.dialog .err{margin:0}
+
+/* ---------- โปรไฟล์ผู้เชี่ยวชาญ ---------- */
+.ex-head{display:grid;grid-template-columns:auto minmax(0,1fr);gap:20px;align-items:start}
+.ex-head h1{margin:0 0 4px}
+.ex-head .ex-title{margin:0 0 10px;color:var(--muted)}
+.ex-meta{display:flex;flex-wrap:wrap;gap:8px 18px;align-items:center;margin:10px 0 14px;font-size:14px}
+.ex-bio{margin:0;max-width:68ch}
+.ex-acts{display:flex;flex-wrap:wrap;gap:10px;margin-top:16px}
+.ch-list{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.ch-list li{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1.2fr);gap:12px;padding:12px 16px;border-top:1px solid var(--line);align-items:center}
+.ch-list li:first-child{border-top:0}
+.ch-list b{font-weight:600}
+.ch-list .ch-price{text-align:right;font-weight:700;font-variant-numeric:tabular-nums}
+.ch-list .ch-price small{display:block;font-weight:500;color:var(--muted);font-size:12.5px}
+.cal{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:var(--r);background:var(--surface)}
+.cal-day{display:grid;grid-template-columns:170px minmax(0,1fr);gap:12px;padding:12px 16px;border-top:1px solid var(--line);align-items:center}
+.cal-day:first-child{border-top:0}
+.cal-date b{display:block;font-size:14.5px}
+.cal-date span{font-size:12.5px;color:var(--muted)}
+.cal-times{display:flex;flex-wrap:wrap;gap:8px}
+.cal-none{font-size:13px;color:var(--muted)}
+.slot-btn{display:inline-flex;align-items:center;justify-content:center;min-width:76px;min-height:40px;padding:6px 16px;border-radius:999px;border:1px solid var(--link);color:var(--link);text-decoration:none;font-weight:600;font-variant-numeric:tabular-nums;background:var(--surface)}
+.slot-btn:hover{background:var(--link);color:var(--surface)}
+.rv-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.rv{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);padding:14px 16px}
+.rv-top{display:flex;flex-wrap:wrap;gap:6px 12px;align-items:center;margin-bottom:6px;font-size:13px;color:var(--muted)}
+.rv-top b{color:var(--ink);font-weight:600}
+.rv p{margin:0;overflow-wrap:anywhere}
+
+/* ---------- หน้าจองนัด ---------- */
+.bk-grid{display:grid;grid-template-columns:minmax(0,1fr) 360px;gap:24px;align-items:start;margin-top:8px}
+.bk-form{display:flex;flex-direction:column;gap:20px}
+.fs{border:0;padding:0;margin:0;min-width:0}
+.fs legend{font-weight:600;font-size:14px;margin-bottom:8px;padding:0}
+.opts{display:grid;gap:10px}
+.opt{display:flex;gap:12px;align-items:flex-start;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);cursor:pointer}
+.opt.is-on{border-color:var(--link);box-shadow:inset 0 0 0 1px var(--link)}
+.opt input{margin-top:5px;flex:none}
+.opt-body{display:flex;flex:1;flex-wrap:wrap;gap:2px 14px;justify-content:space-between;min-width:0}
+.opt-body b{font-weight:600}
+.opt-body .opt-min{color:var(--muted);font-size:13.5px}
+.opt-body .opt-price{font-weight:700;font-variant-numeric:tabular-nums}
+.bk-sum{position:sticky;top:92px;display:flex;flex-direction:column;gap:14px}
+.bk-sum h2{font-size:17px;margin:0}
+.bk-who{display:flex;gap:12px;align-items:center}
+.bk-who p{margin:0;font-size:13px;color:var(--muted)}
+.bk-who b{display:block;font-size:15px}
+.pb-rows{margin:0;display:grid;gap:6px;font-size:14px}
+.pb-rows div{display:flex;justify-content:space-between;gap:12px}
+.pb-rows dd{margin:0;font-variant-numeric:tabular-nums;text-align:right}
+.pb-rows .disc dd{color:var(--ok)}
+.pb-rows .tot{border-top:1px solid var(--line);padding-top:8px;margin-top:2px;font-weight:700;font-size:18px}
+.bk-sum .fine-line{font-size:12.5px;color:var(--muted);margin:0}
+.form-err{margin:0}
+.form-err ul{margin:6px 0 0;padding-left:20px}
+.form-err a{color:inherit;font-weight:600}
+
+/* ---------- ห้องคุย ---------- */
+.rm-head{display:flex;flex-wrap:wrap;gap:12px 20px;justify-content:space-between;align-items:flex-start}
+.rm-head h1{font-size:clamp(22px,3vw,28px);margin:0 0 4px}
+.rm-head p{margin:0;color:var(--muted);font-size:14px}
+.rm-meta{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:4px 14px;font-size:14px;margin:0}
+.rm-meta dt{color:var(--muted)}
+.rm-meta dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.cd{text-align:center;padding:40px 16px;border-radius:20px;color:var(--hero-ink);background:radial-gradient(50% 120% at 0% 0%,var(--glow-violet) 0%,transparent 55%),linear-gradient(120deg,var(--night) 0%,var(--night-2) 100%)}
+.cd p{margin:0 0 6px;color:var(--hero-muted)}
+.cd-time{font-family:var(--f-display);font-weight:700;font-size:clamp(32px,8vw,56px);line-height:1.15;font-variant-numeric:tabular-nums;color:var(--hero-ink)}
+.cd .btn-row{justify-content:center;margin-top:18px}
+.cd .btn--outline{color:var(--hero-ink);border-color:var(--hero-line)}
+.vid{min-height:260px;border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;text-align:center;color:var(--hero-ink);background:linear-gradient(135deg,var(--night) 0%,var(--night-2) 100%)}
+.vid p{margin:0;color:var(--hero-muted);max-width:46ch}
+.vid b{font-size:18px}
+.vid .btn--outline{color:var(--hero-ink);border-color:var(--hero-line)}
+.vid-live{font-family:var(--f-display);font-size:34px;font-variant-numeric:tabular-nums;color:var(--gold-soft)}
+.star-pick{display:flex;gap:2px;border:0;padding:0;margin:0}
+.star-pick label{cursor:pointer;font-size:34px;line-height:1;color:var(--line);padding:2px 3px;border-radius:8px}
+.star-pick label.on{color:var(--gold)}
+.star-pick label:focus-within{outline:2px solid var(--gold)}
+.star-pick input{position:absolute;opacity:0;width:1px;height:1px}
+
+/* ---------- นัดในหน้าบัญชี ---------- */
+.bk-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:12px}
+.bk-card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px 18px;display:flex;flex-direction:column;gap:8px}
+.bk-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;align-items:center}
+.bk-row h3{margin:0;font-size:16px;line-height:1.4}
+.bk-row h3 a{color:inherit;text-decoration:none}
+.bk-row h3 a:hover{color:var(--link);text-decoration:underline}
+.bk-no{font-size:12.5px;color:var(--muted);font-variant-numeric:tabular-nums}
+.bk-info{margin:0;font-size:14px}
+.bk-info span{color:var(--muted)}
+.bk-topic{margin:0;font-size:13.5px;color:var(--muted);overflow-wrap:anywhere}
+.bk-card .btn-row{margin-top:4px}
+.bk-sec h3{font-size:16px;margin:18px 0 10px}
+.bk-sec h3:first-child{margin-top:0}
+
+/* ---------- หลังบ้าน ---------- */
+.ex-adm{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+.ex-adm .form-section{margin-bottom:16px}
+.dl{display:grid;grid-template-columns:max-content minmax(0,1fr);gap:6px 16px;font-size:14px;margin:0}
+.dl dt{color:var(--muted)}
+.dl dd{margin:0;min-width:0;overflow-wrap:anywhere}
+.chk{list-style:none;margin:0 0 14px;padding:0;display:flex;flex-direction:column;gap:6px;font-size:14px}
+.chk li{display:flex;gap:8px;align-items:flex-start}
+.chk .yes{color:var(--ok);font-weight:700}
+.chk .no{color:var(--danger);font-weight:700}
+.rate-row{display:flex;flex-wrap:wrap;gap:10px;align-items:flex-end}
+.rate-row .field{width:180px}
+.rev-adm{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.rev-adm li{border:1px solid var(--line);border-radius:var(--r-sm);padding:12px 14px;background:var(--surface)}
+.rev-adm li.is-hidden{background:var(--surface-2)}
+.rev-adm p{margin:6px 0;overflow-wrap:anywhere}
+.mini-note{font-size:13px;color:var(--muted);margin:0}
+.wk-nav{display:flex;flex-wrap:wrap;gap:8px 10px;align-items:center;margin-bottom:14px}
+.wk-nav .range{font-weight:700;font-size:18px;margin:0 6px}
+.wk-grid{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:10px}
+.wk-day{border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);padding:10px;min-width:0;display:flex;flex-direction:column;gap:8px}
+.wk-day.is-today{border-color:var(--link)}
+.wk-day.is-past{opacity:.7}
+.wk-day h3{font-size:13.5px;margin:0;line-height:1.4}
+.wk-day h3 span{display:block;font-weight:400;color:var(--muted);font-size:12.5px}
+.wk-none{font-size:12.5px;color:var(--muted)}
+.slot-chip{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:7px 9px;border-radius:8px;border:1px solid var(--line);font:600 13px var(--f-body);background:var(--surface);color:var(--ink);cursor:pointer;width:100%;text-align:left;text-decoration:none;min-height:36px}
+.slot-chip small{font-weight:500;font-size:11.5px}
+.slot-chip--open{border-color:var(--ok);background:var(--ok-bg);color:var(--ok)}
+.slot-chip--booked{border-color:var(--link);background:var(--info-bg);color:var(--link)}
+.slot-chip--blocked{border-style:dashed;color:var(--muted)}
+.slot-chip:disabled{cursor:not-allowed;opacity:.6}
+.legend{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:12.5px;color:var(--muted);margin:0 0 12px}
+.add-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;align-items:end}
+.ch-edit{list-style:none;margin:0 0 12px;padding:0;display:flex;flex-direction:column;gap:12px}
+.ch-row{border:1px solid var(--line);border-radius:var(--r-sm);padding:12px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr) minmax(0,1fr) auto;gap:10px;align-items:end}
+.ch-row .field{margin:0}
+.net-col{text-align:right;font-variant-numeric:tabular-nums}
+.dash-list{list-style:none;margin:0;padding:0}
+.dash-list li{border-top:1px solid var(--line)}
+.dash-list li:first-child{border-top:0}
+.dash-list a{display:flex;flex-direction:column;gap:2px;padding:10px 4px;text-decoration:none;color:var(--ink)}
+.dash-list a:hover b{color:var(--link);text-decoration:underline}
+.dash-list span{font-size:13px;color:var(--muted)}
+.dash-nums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0 0 12px}
+.dash-nums div{border:1px solid var(--line);border-radius:var(--r-sm);padding:10px 12px}
+.dash-nums b{display:block;font-size:22px;font-variant-numeric:tabular-nums;line-height:1.2}
+.dash-nums span{font-size:12.5px;color:var(--muted)}
+
+/* ---------- จอเล็ก ---------- */
+@media (max-width:1100px){
+  .exp-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .wk-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .ex-adm{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:900px){
+  .bk-grid,.rm-cols{grid-template-columns:minmax(0,1fr)}
+  .bk-sum{position:static;order:-1}
+}
+@media (max-width:700px){
+  .wk-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .add-grid{grid-template-columns:minmax(0,1fr)}
+  .ch-row{grid-template-columns:minmax(0,1fr)}
+  .ch-row .btn{justify-self:start}
+}
+@media (max-width:640px){
+  .exp-grid{grid-template-columns:minmax(0,1fr)}
+  .ex-head{grid-template-columns:minmax(0,1fr)}
+  .cal-day{grid-template-columns:minmax(0,1fr);gap:8px}
+  .ch-list li{grid-template-columns:minmax(0,1fr) auto;gap:4px 12px}
+  .ch-list li > :nth-child(2){grid-row:2;grid-column:1;color:var(--muted);font-size:13.5px}
+  .ch-list li > :nth-child(3){grid-row:1 / span 2;grid-column:2}
+  .dash-nums{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .rm-meta{grid-template-columns:minmax(0,1fr);gap:0}
+  .rm-meta dd{margin-bottom:6px}
+  .dl{grid-template-columns:minmax(0,1fr);gap:0}
+  .dl dd{margin-bottom:8px}
+}
+@media (max-width:420px){
+  .wk-grid{grid-template-columns:minmax(0,1fr)}
+  .rm-form{flex-wrap:wrap}
+  .rm-form .btn{flex:1}
+}
+@media (prefers-reduced-motion:reduce){.slot-btn{transition:none}}
+
+/* ---------- เพิ่มเติม ---------- */
+.field .check{font-weight:400}
+.field .check input{flex:none}
+.cx--room .cx-side .btn{align-self:flex-start}
+.fs .err{color:var(--danger);font-size:13px;font-weight:500;margin:8px 0 0}
+.form-section form + form{margin-top:20px}
+.form-section .chk{margin-bottom:18px}
+.form-section .btn-row{margin-top:14px}
+.form-section .row .select{flex:1 1 240px;width:auto}
+.form-section .wk-nav{margin-top:10px}
+#dc-block:not(:empty){margin-top:12px}
+.toolbar .field .input,.toolbar .field .select{flex:none}
+.toolbar .field{min-width:0}
+.result-count{margin:10px 0 12px;font-size:13.5px}
+.table-wrap + .mini-note{margin-top:10px}
+@media (max-width:860px){.toolbar .field{flex:1 1 150px}}
+
+/* จอกว้าง: เพิ่มคอลัมน์ตามพื้นที่ */
+@media (min-width:1360px){.exp-grid{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}}
+
+/* ---------- ห้องปรึกษาแบบแอปแชต (โครงหลักอยู่ใน chat.css) ---------- */
+.rm-side-top{display:none}
+.rm-stage{flex:1;min-height:0;display:flex;padding:clamp(12px,2vw,24px)}
+.rm-stage .vid{flex:1;min-height:0}
+.cx-ended .ico{width:18px;height:18px;vertical-align:-3px;color:var(--ok)}
+.rm-rate-btn{display:none}
+.cx--room .cx-side .star-pick label{font-size:30px}
+@media (max-width:900px){
+  .rm-side-top{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:-4px 0 -4px}
+  .rm-rate-btn{display:inline-flex}
+}

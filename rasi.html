@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ราศีจากวันเกิด · MAHASART</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAHASART">
+<meta property="og:title" content="ราศีจากวันเกิด · MAHASART">
+<meta property="og:description" content="เลือกวันที่และเดือนเกิด ดูราศีแบบไทย (สุริยยาตร์) พร้อมเตือนถ้าเกิดใกล้วันเปลี่ยนราศี คำนวณในเบราว์เซอร์ ไม่บันทึกข้อมูล">
+<meta property="og:url" content="https://mahasart.net/rasi.html">
+<meta property="og:image" content="https://mahasart.net/assets/img/og-cover.png">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mahasart.net/rasi.html">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2E2470">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="description" content="เลือกวันที่และเดือนเกิด ดูราศีแบบไทย (สุริยยาตร์) พร้อมเตือนถ้าเกิดใกล้วันเปลี่ยนราศี คำนวณในเบราว์เซอร์ ไม่บันทึกข้อมูล">
+<link rel="stylesheet" href="assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="rasi" data-base="">
+<div id="mh-header"></div>
+
+<main id="main" class="wrap">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="เส้นทางหน้า"><a href="index.html">หน้าแรก</a><span aria-hidden="true">›</span><a href="horoscope.html">พยากรณ์ออนไลน์</a><span aria-hidden="true">›</span><span aria-current="page">ราศีจากวันเกิด</span></nav>
+    <h1>ราศีจากวันเกิด</h1>
+    <p class="lede">เลือกวันที่และเดือนที่คุณเกิด ระบบจะบอกราศีแบบไทย และเตือนถ้าคุณเกิดใกล้วันเปลี่ยนราศี</p>
+  </div>
+
+  <div class="calc-grid">
+    <form class="card calc-form" id="rasi-form" novalidate>
+      <div>
+        <h2 class="card-h">วันที่คุณเกิด</h2>
+        <p class="muted">ใช้แค่วันที่และเดือน ไม่ต้องใช้ปีเกิด</p>
+      </div>
+      <div class="form-grid">
+        <div class="field">
+          <label for="r-day">วันที่</label>
+          <select class="select" id="r-day" aria-describedby="r-day-err"><option value="">เลือกวัน</option></select>
+          <p class="err" id="r-day-err" hidden></p>
+        </div>
+        <div class="field">
+          <label for="r-month">เดือน</label>
+          <select class="select" id="r-month" aria-describedby="r-month-err"><option value="">เลือกเดือน</option></select>
+          <p class="err" id="r-month-err" hidden></p>
+        </div>
+      </div>
+      <div class="btn-row"><button class="btn btn--primary" type="submit">ดูราศี</button></div>
+      <p class="fine-print">คำนวณในเบราว์เซอร์ของคุณ ไม่บันทึกวันเกิด และไม่ส่งข้อมูลออกไปไหน</p>
+    </form>
+
+    <div id="rasi-result" aria-live="polite">
+      <div class="result-hint">เลือกวันและเดือนเกิด แล้วกด “ดูราศี” ผลจะขึ้นตรงนี้</div>
+    </div>
+  </div>
+
+  <section class="card info-card" aria-labelledby="vs-h">
+    <h2 id="vs-h">ราศีไทยกับราศีสากลต่างกันอย่างไร</h2>
+    <p>โหราศาสตร์ไทยนับราศีตามตำแหน่งดาวฤกษ์จริง (สุริยยาตร์) วันเปลี่ยนราศีจึงช้ากว่าแบบตะวันตกราว 3–4 สัปดาห์ เช่น ราศีเมษแบบไทยเริ่มราววันที่ 13–14 เมษายน ส่วนแบบตะวันตกเริ่มราววันที่ 21 มีนาคม</p>
+    <p>วันเปลี่ยนราศีขยับได้ราวหนึ่งวันในแต่ละปี ถ้าเกิดใกล้รอยต่อ ควรให้โหรคำนวณจากปีเกิดจริงอีกครั้ง</p>
+    <p id="vs-link"><a href="article.html?slug=thai-vs-western-rasi">อ่านบทความ: ราศีแบบไทยกับแบบสากล ทำไมวันเปลี่ยนราศีไม่ตรงกัน</a></p>
+  </section>
+
+  <p class="disclaimer">ตำราที่ใช้คำนวณ: “<span data-ruleset></span>” · <span data-disclaimer></span></p>
+</main>
+
+<div id="mh-footer"></div>
+<script src="data/rules.js"></script>
+<script src="data/content.js"></script>
+<script src="data/system.js"></script>
+<script src="data/phase2.js"></script>
+<script src="data/phase3.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/commerce.js"></script>
+<script src="assets/js/astro.js"></script>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/pages/rasi.js"></script>
+</body>
+</html>

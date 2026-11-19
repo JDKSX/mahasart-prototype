@@ -1,0 +1,129 @@
+/* MAHASART ต้นแบบเฟส 2 — ระบบสมาชิก (เข้าสู่ระบบ สมัคร บัญชี) และหน้าสมาชิกหลังบ้าน
+   โหลดหลัง mahasart-ds.css + pages.css (ฝั่งผู้ใช้) หรือหลัง admin.css + admin-pages-b.css (หลังบ้าน)
+   สีทุกค่ามาจาก token ใน mahasart-ds.css · ไม่มี style="" */
+
+/* ---------- ร่วม ---------- */
+.mb-narrow{max-width:520px;margin-inline:auto}
+.mb-card{padding:24px}
+.mb-card > h2{font-family:var(--f-display);font-size:22px;margin:0 0 4px}
+.mb-card > .lede-sm{color:var(--muted);margin:0 0 18px;font-size:14.5px}
+.mb-form{display:flex;flex-direction:column;gap:14px}
+.mb-link{background:none;border:0;padding:0;color:var(--link);font:inherit;text-decoration:underline;cursor:pointer;align-self:flex-start}
+.mb-foot{margin:18px 0 0;font-size:14px;color:var(--muted)}
+.mb-or{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:13px;margin:18px 0}
+.mb-or::before,.mb-or::after{content:"";flex:1;height:1px;background:var(--line)}
+.mb-err{font-size:13px;color:var(--danger);font-weight:500;margin:10px 0 0}
+.mb-err-summary{border:2px solid var(--danger);background:var(--danger-bg);border-radius:var(--r-sm);padding:12px 14px;margin-bottom:16px}
+.mb-err-summary h2{font-size:15px;margin:0 0 4px;color:var(--danger)}
+.mb-err-summary ul{margin:0;padding-left:20px}
+.mb-err-summary a{color:var(--danger);font-weight:500}
+.field .check{font-weight:400}
+.field .check a{font-weight:500}
+.mb-fine{font-size:12.5px;color:var(--muted);margin:0 0 12px}
+
+/* ---------- เข้าสู่ระบบ / สมัคร ---------- */
+.mb-social{display:grid;gap:10px}
+.mb-social-btn{justify-content:flex-start;gap:12px;padding:13px 16px;font-size:16px;width:100%}
+.mb-pv{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 14px var(--f-body);flex:none;background:var(--surface-2);border:1.5px solid currentColor}
+.mb-pv--line{color:var(--ok)}
+.mb-pv--google{color:var(--link)}
+.mb-samples{margin-top:18px;font-size:13.5px}
+.mb-samples summary{cursor:pointer;color:var(--link);font-weight:600}
+.mb-samples ul{list-style:none;margin:10px 0 0;padding:0;display:flex;flex-direction:column;gap:6px}
+.mb-samples li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;padding:8px 10px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface)}
+.mb-samples code{font-size:13px;overflow-wrap:anywhere}
+.mb-who{text-align:center}
+.mb-who .mb-avatar{margin:0 auto 12px}
+.mb-who .btn-row{justify-content:center;margin-top:16px}
+
+/* dialog จำลองหน้ายินยอมของ LINE / Google */
+.mb-consent{max-width:min(460px,calc(100vw - 32px))}
+.mb-consent .notice{margin:0 0 8px}
+.mb-fs{border:0;padding:0;margin:0;min-width:0}
+.mb-fs legend{font-size:13.5px;font-weight:600;padding:0;margin-bottom:8px}
+.mb-acct{display:flex;gap:10px;align-items:flex-start;padding:10px 12px;border:1px solid var(--line);border-radius:var(--r-sm);cursor:pointer;background:var(--surface)}
+.mb-acct + .mb-acct{margin-top:8px}
+.mb-acct:has(input:checked){border-color:var(--link);background:var(--info-bg)}
+.mb-acct input{margin-top:5px;flex:none}
+.mb-acct b{display:block;font-weight:600}
+.mb-acct small{display:block;color:var(--muted);font-size:12.5px;line-height:1.5;overflow-wrap:anywhere}
+.mb-new{margin-top:12px;display:flex;flex-direction:column;gap:12px}
+.dialog .field + .field{margin-top:0}
+
+/* ---------- หน้าบัญชี ---------- */
+.mb-head{display:flex;gap:16px;align-items:center;flex-wrap:wrap;margin-top:16px}
+.mb-avatar{width:56px;height:56px;border-radius:50%;display:grid;place-items:center;background:var(--indigo);color:var(--indigo-ink);font:700 24px var(--f-display);flex:none}
+.mb-head-main{flex:1 1 220px;min-width:0}
+.mb-head-main h2{font-family:var(--f-display);margin:0;font-size:22px;overflow-wrap:anywhere}
+.mb-head-main p{margin:2px 0 0;font-size:14px;overflow-wrap:anywhere}
+.mb-tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin:20px 0 18px;overflow-x:auto;scrollbar-width:thin}
+.mb-tab{border:0;background:none;padding:10px 14px;font:500 14.5px var(--f-body);color:var(--muted);cursor:pointer;border-bottom:2px solid transparent;white-space:nowrap}
+.mb-tab:hover{color:var(--ink)}
+.mb-tab[aria-selected="true"]{color:var(--link);border-bottom-color:var(--link);font-weight:600}
+.mb-panel:focus{outline:none}
+.mb-panel:focus-visible{outline:2px solid var(--gold);outline-offset:4px}
+.mb-panel [tabindex="-1"]:focus{outline:none}
+
+.mb-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:14px}
+.mb-stat{display:flex;flex-direction:column;gap:6px;min-width:0}
+.mb-stat h3{font-size:13.5px;color:var(--muted);font-weight:600;margin:0}
+.mb-big{font-family:var(--f-display);font-size:26px;font-weight:700;line-height:1.25;margin:0;font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.mb-stat p{margin:0;font-size:13.5px}
+.mb-stat .mb-more{margin-top:auto;padding-top:6px;font-weight:600;font-size:14px}
+.mb-block{margin-top:26px}
+.mb-block > h3{font-family:var(--f-display);font-size:18px;margin:0 0 10px}
+.mb-shortcuts{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,200px),1fr));gap:10px}
+.mb-shortcuts a{display:flex;gap:10px;align-items:center;padding:12px 14px;border:1px solid var(--line);border-radius:var(--r-sm);background:var(--surface);color:var(--ink);text-decoration:none;font-weight:500}
+.mb-shortcuts a:hover{border-color:var(--link);color:var(--link)}
+.mb-shortcuts .ico{color:var(--link)}
+.mb-status-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:8px}
+.mb-status-list li{display:flex;flex-wrap:wrap;gap:4px 10px;align-items:center;font-size:14.5px}
+
+.mb-section{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:16px}
+.mb-section > h3{font-family:var(--f-display);font-size:18px;margin:0 0 4px}
+.mb-section > .hint{margin:0 0 14px;color:var(--muted);font-size:13px}
+.mb-section .field .hint{margin:0}
+.mb-birth{margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.mb-birth .form-grid{margin-top:0}
+.mb-sub-h{font-size:15px;margin:0 0 8px}
+.mb-section .btn-row + .hint,.mb-section .btn-row + p{margin-top:12px}
+
+.mb-list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.mb-item{display:flex;gap:12px;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:14px 16px}
+.mb-item-main{flex:1 1 260px;min-width:0}
+.mb-item-main p{margin:2px 0 0;font-size:14px;color:var(--muted)}
+.mb-item-title{font-weight:600;font-size:15.5px;color:var(--ink);overflow-wrap:anywhere}
+a.mb-item-title{text-decoration:none;color:var(--link)}
+a.mb-item-title:hover{text-decoration:underline}
+.mb-item .tag{margin-right:6px;vertical-align:1px}
+.mb-acts{display:flex;gap:8px;flex-wrap:wrap}
+.mb-del{color:var(--danger);border-color:var(--danger)}
+.mb-del:hover{background:var(--danger-bg)}
+.mb-group + .mb-group{margin-top:22px}
+.mb-group > h3{font-size:16px;margin:0 0 10px;display:flex;gap:8px;align-items:center}
+.mb-quota{display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;margin:0 0 14px;font-size:14px}
+.mb-quota .notice{flex:1 1 100%}
+.state h2{font-family:var(--f-display);font-size:clamp(22px,3vw,28px);margin:0 0 8px}
+
+/* ---------- หลังบ้าน: รายชื่อและรายละเอียดสมาชิก ---------- */
+.mb-toolbar{align-items:flex-end}
+.mb-toolbar .select{min-width:150px}
+.mb-count{margin:0 0 10px;font-size:13.5px;color:var(--muted)}
+.mb-dl{display:grid;grid-template-columns:minmax(120px,190px) minmax(0,1fr);gap:8px 16px;margin:0}
+.mb-dl dt{color:var(--muted);font-size:13.5px}
+.mb-dl dd{margin:0;overflow-wrap:anywhere}
+.mb-mask{letter-spacing:.25em;color:var(--muted)}
+.mb-twocol{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;align-items:start}
+.mb-twocol > .form-section{margin-bottom:0}
+.mb-stack > .form-section + .form-section,.mb-stack > .mb-twocol + .form-section,.mb-stack > .form-section + .mb-twocol{margin-top:16px}
+.mb-ro-note{font-size:13px;color:var(--muted);margin:12px 0 0}
+.form-section .sub-h{margin:22px 0 8px}
+.form-section .kpis + .sub-h{margin-top:6px}
+@media (max-width:900px){.mb-twocol{grid-template-columns:minmax(0,1fr)}.mb-twocol > .form-section + .form-section{margin-top:16px}}
+/* หัวเว็บกลาง (ปุ่ม 4 ปุ่ม + โลโก้) กว้างเกินจอ 375px ไป 3px · ลดช่องไฟปุ่มเฉพาะหน้าที่โหลดไฟล์นี้ */
+@media (max-width:400px){.site-header .actions{gap:2px}}
+@media (max-width:560px){
+  .mb-dl{grid-template-columns:minmax(0,1fr);gap:0}
+  .mb-dl dd{margin-bottom:10px}
+  .mb-card{padding:18px}
+}

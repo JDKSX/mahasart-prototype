@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>ผู้ใช้ทีมงาน · หลังบ้าน MAHASART</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="../assets/css/admin.css">
+<link rel="stylesheet" href="../assets/css/admin-pages-b.css">
+</head>
+<body data-admin-page="users" data-perm="users.manage" data-base="../">
+<div id="mh-admin"></div>
+<main id="main" class="adm-main">
+  <div class="adm-head">
+    <div>
+      <h1>ผู้ใช้ทีมงาน</h1>
+      <p>เพิ่มผู้ใช้ เปลี่ยนบทบาท และปิดสิทธิ์เข้าหลังบ้าน</p>
+    </div>
+    <div class="btn-row"><button type="button" class="btn btn--primary" id="add-user" aria-expanded="false" aria-controls="add-panel">เพิ่มผู้ใช้</button></div>
+  </div>
+  <div class="notice" role="note">ระบบจริงจะส่งลิงก์ตั้งรหัสผ่านไปทางอีเมลของผู้ใช้ใหม่ และบังคับยืนยันตัวตน 2 ชั้น (2FA) สำหรับบทบาทผู้ดูแลระบบและผู้ดูแลแค็ตตาล็อก ต้นแบบนี้ยังไม่ส่งอีเมลจริง</div>
+  <section class="form-section user-add" id="add-panel" aria-labelledby="add-title" hidden>
+    <h2 id="add-title">เพิ่มผู้ใช้ทีมงาน</h2>
+    <p class="hint">ผู้ใช้ใหม่จะใช้งานได้ทันทีตามบทบาทที่เลือก เปลี่ยนบทบาทภายหลังได้</p>
+    <form id="add-form" novalidate>
+      <div class="form-grid">
+        <div class="field"><label for="u-name">ชื่อ-นามสกุล</label><input class="input" id="u-name" autocomplete="off" maxlength="80"></div>
+        <div class="field"><label for="u-email">อีเมล</label><input class="input" id="u-email" type="email" inputmode="email" autocomplete="off" placeholder="name@mahasart.net"></div>
+        <div class="field"><label for="u-role">บทบาท</label><select class="select" id="u-role"></select><p class="hint" id="u-role-hint"></p></div>
+      </div>
+      <div class="btn-row form-btns">
+        <button class="btn btn--primary" type="submit">เพิ่มผู้ใช้</button>
+        <button class="btn btn--outline" type="button" id="add-cancel">ยกเลิก</button>
+      </div>
+    </form>
+  </section>
+  <div id="list"></div>
+</main>
+<script src="../data/rules.js"></script>
+<script src="../data/content.js"></script>
+<script src="../data/system.js"></script>
+<script src="../data/phase2.js"></script>
+<script src="../data/phase3.js"></script>
+<script src="../assets/js/store.js"></script>
+<script src="../assets/js/commerce.js"></script>
+<script src="../assets/js/astro.js"></script>
+<script src="../assets/js/shell.js"></script>
+<script src="../assets/js/admin/admin-shell.js"></script>
+<script src="../assets/js/admin/users.js"></script>
+</body>
+</html>

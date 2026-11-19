@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>สมัครสมาชิก · MAHASART</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAHASART">
+<meta property="og:title" content="สมัครสมาชิก · MAHASART">
+<meta property="og:description" content="สมัครสมาชิก MAHASART ฟรี ด้วย LINE, Google หรืออีเมล เพื่อบันทึกผลดูดวงและเก็บรายการโปรด">
+<meta property="og:url" content="https://mahasart.net/register.html">
+<meta property="og:image" content="https://mahasart.net/assets/img/og-cover.png">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mahasart.net/register.html">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2E2470">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="description" content="สมัครสมาชิก MAHASART ฟรี ด้วย LINE, Google หรืออีเมล เพื่อบันทึกผลดูดวงและเก็บรายการโปรด">
+<link rel="stylesheet" href="assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+<link rel="stylesheet" href="assets/css/members.css">
+</head>
+<body data-page="register" data-base="">
+<div id="mh-header"></div>
+
+<main id="main" class="wrap">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="เส้นทางหน้า"><a href="index.html">หน้าแรก</a><span aria-hidden="true">›</span><span aria-current="page">สมัครสมาชิก</span></nav>
+    <h1>สมัครสมาชิกฟรี</h1>
+    <p class="lede">ไม่ต้องใส่วันเกิดตอนสมัคร จะเก็บวันเกิดก็ต่อเมื่อคุณติ๊กยินยอมเองในหน้าบัญชี</p>
+  </div>
+
+  <div class="mb-narrow">
+    <section class="card mb-card" id="reg-card" aria-labelledby="reg-h">
+      <h2 id="reg-h">สมัครด้วยบัญชีที่มีอยู่</h2>
+      <div class="mb-social">
+        <button type="button" class="btn btn--outline mb-social-btn" data-provider="line"><span class="mb-pv mb-pv--line" aria-hidden="true">L</span>สมัครด้วย LINE</button>
+        <button type="button" class="btn btn--outline mb-social-btn" data-provider="google"><span class="mb-pv mb-pv--google" aria-hidden="true">G</span>สมัครด้วย Google</button>
+      </div>
+      <p class="mb-or"><span>หรือสมัครด้วยอีเมล</span></p>
+      <form class="mb-form" id="reg-form" novalidate>
+        <div class="field">
+          <label for="rg-name">ชื่อที่แสดง</label>
+          <input class="input" id="rg-name" maxlength="60" autocomplete="nickname" aria-describedby="rg-name-hint">
+          <p class="hint" id="rg-name-hint">ใช้ทักทายบนหัวเว็บ ไม่ต้องเป็นชื่อจริงก็ได้</p>
+        </div>
+        <div class="field">
+          <label for="rg-email">อีเมล</label>
+          <input class="input" id="rg-email" type="email" inputmode="email" autocomplete="email" placeholder="name@example.com">
+        </div>
+        <div class="field">
+          <label for="rg-pass">รหัสผ่าน</label>
+          <input class="input" id="rg-pass" type="password" autocomplete="new-password" aria-describedby="rg-pass-hint">
+          <p class="hint" id="rg-pass-hint">ยาวอย่างน้อย 8 ตัวอักษร · ต้นแบบนี้ไม่เก็บรหัสผ่านของใคร</p>
+        </div>
+        <div class="field">
+          <label for="rg-pass2">ยืนยันรหัสผ่าน</label>
+          <input class="input" id="rg-pass2" type="password" autocomplete="new-password">
+        </div>
+        <div class="field">
+          <label class="check" for="rg-terms"><input type="checkbox" id="rg-terms"><span>ฉันอ่านและยอมรับ <a href="page.html?slug=terms" target="_blank" rel="noopener">เงื่อนไขการใช้งาน</a> และ <a href="page.html?slug=privacy" target="_blank" rel="noopener">นโยบายความเป็นส่วนตัว</a> (จำเป็น)</span></label>
+        </div>
+        <div class="field">
+          <label class="check" for="rg-marketing"><input type="checkbox" id="rg-marketing"><span>ฉันอยากรับข่าวสารและโปรโมชันทางอีเมล (ไม่บังคับ เปลี่ยนใจได้ทุกเมื่อในหน้าบัญชี)</span></label>
+        </div>
+        <button class="btn btn--primary" type="submit">สมัครสมาชิก</button>
+      </form>
+      <p class="mb-foot">มีบัญชีอยู่แล้ว? <a id="to-login" href="login.html">เข้าสู่ระบบ</a></p>
+    </section>
+    <p class="disclaimer">ต้นแบบนี้จำลองการสมัคร ข้อมูลสมาชิกเก็บในเบราว์เซอร์นี้เท่านั้น ไม่มีการส่งอีเมลยืนยันจริง</p>
+  </div>
+</main>
+
+<div id="mh-footer"></div>
+<script src="data/rules.js"></script>
+<script src="data/content.js"></script>
+<script src="data/system.js"></script>
+<script src="data/phase2.js"></script>
+<script src="data/phase3.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/commerce.js"></script>
+<script src="assets/js/astro.js"></script>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/pages/login.js"></script>
+<script src="assets/js/pages/register.js"></script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>เลขศาสตร์ชื่อ · MAHASART</title>
+<!-- ลบ noindex ตอนเปิดระบบจริง -->
+<meta name="robots" content="noindex,nofollow">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="MAHASART">
+<meta property="og:title" content="เลขศาสตร์ชื่อ · MAHASART">
+<meta property="og:description" content="รวมค่าตัวอักษรของชื่อและนามสกุล แล้วดูความหมายของเลขโดดที่ได้ คำนวณในเบราว์เซอร์ ไม่ส่งชื่อออกไปไหน">
+<meta property="og:url" content="https://mahasart.net/numerology.html">
+<meta property="og:image" content="https://mahasart.net/assets/img/og-cover.png">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://mahasart.net/numerology.html">
+<link rel="manifest" href="manifest.webmanifest">
+<meta name="theme-color" content="#2E2470">
+<link rel="icon" type="image/png" sizes="192x192" href="assets/img/icon-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<meta name="description" content="รวมค่าตัวอักษรของชื่อและนามสกุล แล้วดูความหมายของเลขโดดที่ได้ คำนวณในเบราว์เซอร์ ไม่ส่งชื่อออกไปไหน">
+<link rel="stylesheet" href="assets/css/mahasart-ds.css">
+<link rel="stylesheet" href="assets/css/pages.css">
+</head>
+<body data-page="numerology" data-base="">
+<div id="mh-header"></div>
+
+<main id="main" class="wrap">
+  <div class="page-head">
+    <nav class="crumbs" aria-label="เส้นทางหน้า"><a href="index.html">หน้าแรก</a><span aria-hidden="true">›</span><a href="horoscope.html">พยากรณ์ออนไลน์</a><span aria-hidden="true">›</span><span aria-current="page">เลขศาสตร์ชื่อ</span></nav>
+    <h1>เลขศาสตร์ชื่อ</h1>
+    <p class="lede">พิมพ์ชื่อและนามสกุลเป็นภาษาไทย ระบบจะรวมค่าตัวอักษรทีละตัว แล้วบอกความหมายของเลขโดดที่ได้</p>
+  </div>
+
+  <div class="calc-grid">
+    <form class="card calc-form" id="nm-form" novalidate autocomplete="off">
+      <div>
+        <h2 class="card-h">ชื่อที่ต้องการคำนวณ</h2>
+        <p class="muted">คำนวณในเบราว์เซอร์ของคุณ ไม่ส่งชื่อออกไปไหน ไม่บันทึกไว้ และไม่ใส่ลงที่อยู่เว็บ</p>
+      </div>
+      <div class="field">
+        <label for="nm-first">ชื่อ</label>
+        <input class="input" id="nm-first" type="text" autocomplete="off" spellcheck="false" placeholder="เช่น สมชาย" aria-describedby="nm-first-err">
+        <p class="err" id="nm-first-err" hidden></p>
+      </div>
+      <div class="field">
+        <label for="nm-last">นามสกุล</label>
+        <input class="input" id="nm-last" type="text" autocomplete="off" spellcheck="false" placeholder="เช่น ใจดี" aria-describedby="nm-last-hint nm-last-err">
+        <p class="hint" id="nm-last-hint">ไม่บังคับ เว้นว่างได้ถ้าไม่มีนามสกุล</p>
+        <p class="err" id="nm-last-err" hidden></p>
+      </div>
+      <div class="btn-row"><button class="btn btn--primary" type="submit">คำนวณ</button></div>
+    </form>
+
+    <div id="nm-result" aria-live="polite">
+      <div class="result-hint">พิมพ์ชื่อแล้วกด “คำนวณ” ผลจะขึ้นตรงนี้</div>
+    </div>
+  </div>
+
+  <section class="card info-card" aria-labelledby="why-h">
+    <h2 id="why-h">ทำไมผลจากแต่ละที่ไม่ตรงกัน</h2>
+    <p>แต่ละสำนักใช้ตารางค่าตัวอักษรต่างกันเล็กน้อย ผลรวมของชื่อเดียวกันจึงอาจต่างกัน เครื่องมือนี้บอกเสมอว่าใช้ตารางจากตำราเล่มไหน และตัวอักษรที่ไม่มีในตารางจะไม่ถูกนับ</p>
+    <p id="why-link"><a href="article.html?slug=name-numerology-basics">อ่านบทความ: เลขศาสตร์ชื่อ คิดผลรวมอย่างไร</a></p>
+  </section>
+
+  <p class="disclaimer">ตำราที่ใช้คำนวณ (ตารางค่าตัวอักษร): “<span data-ruleset></span>” · <span data-disclaimer></span></p>
+</main>
+
+<div id="mh-footer"></div>
+<script src="data/rules.js"></script>
+<script src="data/content.js"></script>
+<script src="data/system.js"></script>
+<script src="data/phase2.js"></script>
+<script src="data/phase3.js"></script>
+<script src="assets/js/store.js"></script>
+<script src="assets/js/commerce.js"></script>
+<script src="assets/js/astro.js"></script>
+<script src="assets/js/shell.js"></script>
+<script src="assets/js/pages/numerology.js"></script>
+</body>
+</html>
